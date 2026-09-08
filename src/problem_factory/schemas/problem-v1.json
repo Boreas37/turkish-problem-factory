@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/problem-factory/problem-v1.json",
+  "title": "Platform-owned problem package v1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "slug", "title", "statement", "input_description",
+    "output_description", "constraints", "samples", "tags", "topics",
+    "difficulty", "expected_time_complexity", "expected_space_complexity",
+    "language", "cpp_standard", "program_type", "time_limit_ms",
+    "wall_time_limit_ms", "memory_limit_kb", "output_limit_kb",
+    "output_mode", "float_tolerance", "tests", "provenance", "generation"
+  ],
+  "$defs": {
+    "sample": {
+      "type": "object", "additionalProperties": false,
+      "required": ["input", "output"],
+      "properties": {
+        "input": {"type": "string"}, "output": {"type": "string"},
+        "explanation": {"type": ["string", "null"]}
+      }
+    },
+    "test": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "input_file", "output_file", "hidden", "weight", "category"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "input_file": {"type": "string", "pattern": "^tests/[0-9]{4}\\.in$"},
+        "output_file": {"type": "string", "pattern": "^tests/[0-9]{4}\\.out$"},
+        "hidden": {"type": "boolean"},
+        "weight": {"type": "number", "minimum": 0},
+        "category": {"enum": ["sample", "edge", "boundary", "random", "adversarial", "stress", "generated"]}
+      }
+    }
+  },
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80},
+    "title": {"type": "string", "minLength": 3},
+    "statement": {"type": "string", "minLength": 20},
+    "input_description": {"type": "string", "minLength": 3},
+    "output_description": {"type": "string", "minLength": 3},
+    "constraints": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "samples": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/sample"}},
+    "tags": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "topics": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "difficulty": {"enum": ["kolay", "orta", "zor"]},
+    "expected_time_complexity": {"type": "string", "pattern": "^O\\(.+\\)$"},
+    "expected_space_complexity": {"type": "string", "pattern": "^O\\(.+\\)$"},
+    "language": {"const": "cpp"},
+    "cpp_standard": {"const": "c++20"},
+    "program_type": {"const": "stdin_stdout"},
+    "time_limit_ms": {"type": "integer", "minimum": 100, "maximum": 10000},
+    "wall_time_limit_ms": {"type": "integer", "minimum": 100, "maximum": 30000},
+    "memory_limit_kb": {"type": "integer", "minimum": 16384, "maximum": 1048576},
+    "output_limit_kb": {"type": "integer", "minimum": 1, "maximum": 65536},
+    "output_mode": {"const": "normalized_exact"},
+    "float_tolerance": {"type": "null"},
+    "tests": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/test"}},
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_id", "source_hash", "source_name", "source_url", "original_title"],
+      "properties": {
+        "source_id": {"type": "string"},
+        "source_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "source_name": {"type": "string"},
+        "source_url": {"type": ["string", "null"], "format": "uri"},
+        "original_title": {"type": "string"}
+      }
+    },
+    "generation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["generator_version", "model", "effort", "generated_at", "request_id"],
+      "properties": {
+        "generator_version": {"type": "string"}, "model": {"type": "string"},
+        "effort": {"const": "xhigh"},
+        "generated_at": {"type": "string", "format": "date-time"},
+        "request_id": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

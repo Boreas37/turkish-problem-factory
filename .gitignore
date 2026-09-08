@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.firecrawl/
+build/
+dist/
+*.egg-info/
+state.db
+state.db.lock
+work/
+artifacts/processing/
+artifacts/completed/
+artifacts/failed/
+artifacts/raw/

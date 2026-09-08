@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "source": {
+    "name": "yerel-ornekler",
+    "url": null,
+    "license": "CC0-1.0"
+  },
+  "problems": [
+    {
+      "id": "sum-two",
+      "title": "Sum of Two Integers",
+      "statement": "Given two integers a and b, print their sum.",
+      "input": "Two integers a and b.",
+      "output": "Print a+b.",
+      "constraints": ["-10^9 <= a, b <= 10^9"],
+      "samples": [
+        {"input": "2 3\n", "output": "5\n", "explanation": null}
+      ],
+      "notes": "Introductory deterministic example.",
+      "source_url": null
+    }
+  ]
+}

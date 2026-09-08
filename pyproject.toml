@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turkish-problem-factory"
+version = "0.2.0"
+description = "Resumable Turkish C++20 problem package factory"
+requires-python = ">=3.11"
+dependencies = ["jsonschema>=4.21,<5"]
+
+[project.optional-dependencies]
+dev = ["build>=1.2,<2", "pytest>=8,<9", "ruff>=0.6,<1"]
+
+[project.scripts]
+problem-factory = "problem_factory.cli:main"
+
+[tool.setuptools.package-data]
+problem_factory = ["schemas/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["work", "dist"]

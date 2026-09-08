@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.1",
+  "slug": "iki-sayinin-toplami",
+  "title": "İki Sayının Toplamı",
+  "statement": "Verilen iki tam sayı a ve b'nin toplamını hesaplayıp standart çıktıya yazdırın.",
+  "input_description": "Tek satırda boşlukla ayrılmış iki tam sayı a ve b verilir.",
+  "output_description": "a + b toplamını tek satırda yazdırın.",
+  "constraints": [
+    "-10^9 ≤ a, b ≤ 10^9"
+  ],
+  "samples": [
+    {
+      "input": "2 3\n",
+      "output": "5\n",
+      "explanation": null
+    }
+  ],
+  "tags": [
+    "matematik",
+    "başlangıç"
+  ],
+  "topics": [
+    "Temel Girdi/Çıktı"
+  ],
+  "difficulty": "kolay",
+  "expected_time_complexity": "O(1)",
+  "expected_space_complexity": "O(1)",
+  "language": "cpp",
+  "cpp_standard": "c++20",
+  "program_type": "stdin_stdout",
+  "time_limit_ms": 1000,
+  "wall_time_limit_ms": 2000,
+  "memory_limit_kb": 131072,
+  "output_limit_kb": 64,
+  "output_mode": "normalized_exact",
+  "float_tolerance": null,
+  "tests": [
+    {
+      "id": "sample-0001",
+      "input_file": "tests/0000.in",
+      "output_file": "tests/0000.out",
+      "hidden": false,
+      "weight": 0,
+      "category": "sample"
+    },
+    {
+      "id": "hidden-0002",
+      "input_file": "tests/0001.in",
+      "output_file": "tests/0001.out",
+      "hidden": true,
+      "weight": 1,
+      "category": "edge"
+    },
+    {
+      "id": "hidden-0003",
+      "input_file": "tests/0002.in",
+      "output_file": "tests/0002.out",
+      "hidden": true,
+      "weight": 1,
+      "category": "boundary"
+    },
+    {
+      "id": "hidden-0004",
+      "input_file": "tests/0003.in",
+      "output_file": "tests/0003.out",
+      "hidden": true,
+      "weight": 1,
+      "category": "boundary"
+    },
+    {
+      "id": "hidden-0005",
+      "input_file": "tests/0004.in",
+      "output_file": "tests/0004.out",
+      "hidden": true,
+      "weight": 1,
+      "category": "boundary"
+    },
+    {
+      "id": "hidden-0006",
+      "input_file": "tests/0005.in",
+      "output_file": "tests/0005.out",
+      "hidden": true,
+      "weight": 1,
+      "category": "random"
+    }
+  ],
+  "provenance": {
+    "source_id": "sum-two",
+    "source_hash": "1b4cb76cf359a6d120b5f1980d3da090ca34a782e984bf2b4d73e9b2a6f3765c",
+    "source_name": "yerel-ornekler",
+    "source_url": null,
+    "original_title": "Sum of Two Integers"
+  },
+  "generation": {
+    "generator_version": "0.2.0",
+    "model": "muse-spark-1.3-contributor-free",
+    "effort": "xhigh",
+    "generated_at": "2026-09-08T15:23:43.982582+00:00",
+    "request_id": "fake-1"
+  }
+}

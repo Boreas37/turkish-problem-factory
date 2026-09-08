@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/problem-factory/source-v1.json",
+  "title": "Raw problem source v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "source", "problems"],
+  "properties": {
+    "version": {"const": "1.0"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "url": {"type": ["string", "null"], "format": "uri"},
+        "license": {"type": ["string", "null"]}
+      }
+    },
+    "problems": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "title", "statement", "input", "output"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Za-z0-9._-]+$"},
+          "title": {"type": "string", "minLength": 1},
+          "statement": {"type": "string", "minLength": 1},
+          "input": {"type": "string", "minLength": 1},
+          "output": {"type": "string", "minLength": 1},
+          "constraints": {"type": "array", "items": {"type": "string"}},
+          "samples": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["input", "output"], "properties": {"input": {"type": "string"}, "output": {"type": "string"}, "explanation": {"type": ["string", "null"]}}}},
+          "notes": {"type": ["string", "null"]},
+          "source_url": {"type": ["string", "null"], "format": "uri"}
+        }
+      }
+    }
+  }
+}
